@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class SafeInput {
+
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high) {
+        int result;
+        boolean isValid = false;
+
+        do {
+            System.out.print(prompt);
+            if (pipe.hasNextInt()) {
+                result = pipe.nextInt();
+                if (result >= low && result <= high) {
+                    isValid = true;
+                } else {
+                    System.out.println("Error: Input must be between " + low + " and " + high);
+                }
+            } else {
+                System.out.println("Error: Invalid input. Please enter an integer.");
+                pipe.next();
+            }
+        } while (!isValid);
+
+        return result = 0;
+    }
+}
